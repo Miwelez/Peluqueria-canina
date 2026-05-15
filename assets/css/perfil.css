@@ -1,0 +1,109 @@
+/* estilos específicos de perfil.php — extiende login_registro.css */
+
+.login-container { max-width: 480px; }
+
+.campo-desactivado {
+    background-color: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.separador {
+    border: none;
+    border-top: 1px solid #e8e8e8;
+    margin: 24px 0;
+}
+
+/* aviso pequeño junto a una label (p.ej. "(no editable)") */
+.label-aux {
+    color: #bbb;
+    font-size: 0.8rem;
+}
+
+/* banner verde de "cambios guardados" */
+.exito {
+    background-color: #f0fff4;
+    color: #2d7a4a;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+    border: 1px solid #b7e4c7;
+}
+
+
+/* --- sección de centros del empleado --- */
+.seccion-titulo {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.centros-lista {
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+.centro-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 12px;
+    background: #f0fff4;
+    border: 1px solid #b7e4c7;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+.centro-item span { font-size: 0.9rem; color: #333; }
+.centro-item small { font-size: 0.78rem; color: #888; display: block; }
+
+.btn-salir {
+    background: none;
+    border: none;
+    color: #c00;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 0 4px;
+    flex-shrink: 0;
+}
+.btn-salir:hover { color: #900; }
+
+.sin-centros { font-size: 0.85rem; color: #aaa; margin-bottom: 14px; }
+
+
+/* --- buscador AJAX de centros (solo empleado) --- */
+.buscador-centros {
+    width: 100%;
+    padding: 11px 16px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    color: #333;
+    transition: border-color 0.2s;
+}
+.buscador-centros:focus { border-color: #56916C; }
+
+.resultados-lista {
+    list-style: none;
+    margin-top: 6px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.resultado-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
+}
+.resultado-item:last-child { border-bottom: none; }
+.resultado-item:hover { background: #f0fff4; }
+.resultado-item strong { display: block; font-size: 0.9rem; color: #333; }
+.resultado-item small { font-size: 0.78rem; color: #888; }
+
+.resultado-vacio { padding: 10px 14px; font-size: 0.85rem; color: #999; }

@@ -1,0 +1,664 @@
+/* === reset y base === */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.main-contenido {
+    padding-top: 60px; /* dejamos hueco para la topbar fija */
+}
+
+
+/* === topbar === */
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #56916C;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.topbar-titulo {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.topbar-derecha {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.topbar-nombre {
+    color: #CDEDB3;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.topbar-icono {
+    color: #CDEDB3;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+.topbar-icono:hover { opacity: 0.75; }
+
+
+/* === tabs y cabecera de sección === */
+
+.tabs {
+    display: flex;
+    gap: 4px;
+    padding: 16px 24px 0;
+    background-color: #f5f5f5;
+}
+
+.tab {
+    padding: 10px 24px;
+    border-radius: 8px 8px 0 0;
+    background-color: #ddd;
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+.tab:hover { background-color: #ccc; }
+
+.tab.activo {
+    background-color: white;
+    color: #56916C;
+    font-weight: 700;
+}
+
+/* contenedor blanco donde vive el contenido de cada pestaña */
+.seccion-contenido {
+    background-color: white;
+    margin: 0 24px 24px;
+    border-radius: 0 8px 8px 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    min-height: calc(100vh - 120px);
+}
+
+/* título + botón de añadir alineados */
+.seccion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.seccion-header h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #56916C;
+}
+
+
+/* === botones === */
+
+.btn-primario {
+    padding: 9px 18px;
+    background-color: #56916C;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-primario:hover { background-color: #47785a; }
+
+.btn-secundario {
+    padding: 5px 12px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-secundario:hover { background-color: #ddd; }
+
+.btn-peligro {
+    padding: 5px 12px;
+    background-color: #fff0f0;
+    color: #c00;
+    border: 1px solid #f5c0c0;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-peligro:hover { background-color: #ffe0e0; }
+
+/* botoncito × para quitar una fila */
+.btn-quitar {
+    background: none;
+    border: none;
+    color: #c00;
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.btn-quitar:hover { opacity: 1; }
+
+/* lápiz para editar fila */
+.btn-editar {
+    background: none;
+    border: none;
+    color: #56916C;
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 0 6px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+.btn-editar:hover { opacity: 1; }
+
+
+/* === tabla === */
+
+.tabla-dashboard {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.tabla-dashboard thead th {
+    text-align: left;
+    padding: 10px 14px;
+    background-color: #CDEDB3;
+    color: #56916C;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-bottom: 2px solid #b5dfa0;
+}
+
+.tabla-dashboard tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #56916C;
+    vertical-align: middle;
+}
+
+.tabla-dashboard tbody tr:last-child td { border-bottom: none; }
+.tabla-dashboard tbody tr:hover td { background-color: #fafafa; }
+
+/* columna final con los botones de acción */
+.tabla-acciones {
+    display: flex;
+    gap: 6px;
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* fila gris claro "sin resultados" dentro de la tabla */
+.tabla-dashboard tbody tr.fila-sin-resultados td {
+    text-align: center;
+    padding: 28px 0;
+    color: #aaa;
+    font-style: italic;
+    font-size: 0.9rem;
+    background: transparent;
+}
+.tabla-dashboard tbody tr.fila-sin-resultados:hover td {
+    background: transparent;
+}
+
+
+/* === buscadores y paneles desplegables === */
+
+.panel-busqueda {
+    background: #f8fff8;
+    border: 1px solid #CDEDB3;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 20px;
+}
+
+.panel-busqueda input[type="text"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    outline: none;
+    color: #333;
+    transition: border-color 0.2s;
+}
+.panel-busqueda input[type="text"]:focus { border-color: #56916C; }
+
+.panel-busqueda ul {
+    list-style: none;
+    margin-top: 6px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.panel-busqueda .resultado-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+    color: #333;
+    transition: background 0.15s;
+}
+.panel-busqueda .resultado-item:last-child { border-bottom: none; }
+.panel-busqueda .resultado-item:hover { background: #f0fff4; }
+.panel-busqueda .resultado-item small { color: #888; margin-left: 8px; }
+.panel-busqueda .resultado-vacio { padding: 10px 14px; font-size: 0.85rem; color: #999; }
+
+/* select de filtro en la cabecera del calendario */
+.select-filtro {
+    padding: 8px 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #333;
+    background: white;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+.select-filtro:focus { border-color: #56916C; }
+
+/* buscador encima de la tabla de clientes (filtra client-side) */
+.buscador-tabla {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: #333;
+    outline: none;
+    margin-bottom: 14px;
+    transition: border-color 0.2s;
+}
+.buscador-tabla:focus { border-color: #56916C; }
+
+/* form en línea (panel de alta de cliente) */
+.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-inline input[type="text"],
+.form-inline select {
+    flex: 1;
+    min-width: 140px;
+    padding: 10px 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: #333;
+    outline: none;
+    background: white;
+    transition: border-color 0.2s;
+}
+.form-inline input[type="text"]:focus,
+.form-inline select:focus { border-color: #56916C; }
+
+.form-inline button { flex-shrink: 0; }
+
+
+/* === chips y badges === */
+
+/* etiqueta "Yo" en la fila del propio empleador */
+.etiqueta-yo {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #56916C;
+    background-color: #CDEDB3;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.chip-perro {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #56916C;
+    background-color: #CDEDB3;
+    border-radius: 12px;
+    padding: 3px 10px;
+    margin: 2px 4px 2px 0;
+    vertical-align: middle;
+}
+
+.chip-perro.chip-vacio {
+    color: #999;
+    background-color: #f0f0f0;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* el nombre del perro dentro del chip — es un botón pero queremos que parezca texto */
+.chip-nombre {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+.chip-nombre:hover { text-decoration: underline; }
+
+/* × pequeñín dentro del chip para borrar ese perro concreto */
+.chip-cerrar {
+    background: none;
+    border: none;
+    color: #56916C;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 4px;
+    padding: 0 2px;
+    line-height: 1;
+    opacity: 0.5;
+    transition: opacity 0.2s, color 0.2s;
+}
+.chip-cerrar:hover { opacity: 1; color: #c00; }
+
+/* botón redondo "+" al final de los chips para añadir perro */
+.btn-añadir-perro {
+    background: #CDEDB3;
+    color: #56916C;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: background 0.2s;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+.btn-añadir-perro:hover { background: #b5dfa0; }
+
+/* cajita verde tenue con info derivada de la raza (tamaño + pelo) */
+.info-raza {
+    background: #f8fff8;
+    border: 1px dashed #b5dfa0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+    color: #56916C;
+    display: flex;
+    gap: 18px;
+}
+
+
+/* === calendario (cuadradito de cada cita) === */
+
+.fc-event .fc-event-main {
+    height: 100%;
+    padding: 0;
+}
+
+.cita-cuerpo {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4px 6px;
+}
+
+/* línea 1: "nombre — raza" */
+.cita-linea1 {
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* línea 2: el servicio */
+.cita-linea2 {
+    font-size: 0.88rem;
+    margin-top: 4px;
+    opacity: 0.95;
+    line-height: 1.15;
+}
+
+
+/* === modales === */
+
+/* overlay oscuro que cubre toda la pantalla */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+/* caja blanca centrada dentro del overlay */
+.modal-caja {
+    background: white;
+    border-radius: 14px;
+    padding: 32px 28px;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.modal-texto {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.modal-botones {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-botones .btn-secundario,
+.modal-botones .btn-peligro {
+    padding: 9px 22px;
+    font-size: 0.9rem;
+}
+
+/* aviso rojo (lista de perros que caen en cascada al borrar cliente) */
+.modal-aviso {
+    color: #c00;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+/* variante con formulario dentro */
+.modal-caja.modal-form {
+    max-width: 460px;
+    text-align: left;
+}
+.modal-form h3 {
+    color: #56916C;
+    margin-bottom: 6px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+.modal-subtexto {
+    font-size: 0.88rem;
+    color: #777;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.modal-form input[type="text"],
+.modal-form select {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: #333;
+    outline: none;
+    background: white;
+    transition: border-color 0.2s;
+}
+.modal-form input[type="text"]:focus,
+.modal-form select:focus { border-color: #56916C; }
+.modal-form .modal-botones { margin-top: 14px; }
+
+.modal-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: #333;
+    outline: none;
+    background: white;
+    transition: border-color 0.2s;
+    resize: vertical;
+    font-family: inherit;
+}
+.modal-form textarea:focus { border-color: #56916C; }
+
+.modal-form input[type="datetime-local"],
+.modal-form input[type="number"] {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: #333;
+    outline: none;
+    background: white;
+    transition: border-color 0.2s;
+}
+.modal-form input[type="datetime-local"]:focus,
+.modal-form input[type="number"]:focus { border-color: #56916C; }
+
+.modal-form .campo-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #56916C;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+/* variante más ancha para el modal de cita (más campos) */
+.modal-caja.modal-form-amplio {
+    max-width: 540px;
+}
+
+
+/* === banners y estados === */
+
+/* banners verde / rojo con fade-out por CSS */
+.seccion-ok, .seccion-error {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+    transition: opacity 0.5s, max-height 0.5s, margin 0.5s, padding 0.5s;
+    overflow: hidden;
+    max-height: 100px;
+}
+
+.seccion-ok {
+    background-color: #f0fff4;
+    color: #2d7a4a;
+    border: 1px solid #b7e4c7;
+}
+
+.seccion-error {
+    background-color: #fff0f0;
+    color: #c00;
+    border: 1px solid #f5c0c0;
+}
+
+/* clase que añade el JS para que el banner se desvanezca tras 4s */
+.seccion-ok.flash-ocultar,
+.seccion-error.flash-ocultar {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-width: 0;
+}
+
+/* texto gris centrado para "no hay datos" */
+.tabla-vacia {
+    text-align: center;
+    padding: 40px 0;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+
+/* === responsive móvil === */
+
+@media (max-width: 600px) {
+    .topbar {
+        padding: 0 16px;
+    }
+
+    .tabs {
+        padding: 12px 16px 0;
+    }
+
+    .seccion-contenido {
+        margin: 0 16px 16px;
+        padding: 16px;
+    }
+
+    .tab {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+}
